@@ -32,6 +32,7 @@ def mainLoop():
 	done = False
 	x = 0
 	y = 8 * 4
+	BLUE = (0, 0, 192) # Red, Green, Blue
 	while not done:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -39,7 +40,7 @@ def mainLoop():
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_RIGHT and x != 640 - 8:
 					x += 8
-		screen.fill((0, 0, 192))
+		screen.fill(BLUE)
 		drawWall()
 		drawPlayer(x, y)
 		pygame.display.flip()
