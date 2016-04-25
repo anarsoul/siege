@@ -21,7 +21,7 @@ def init(width, height):
 	bomb = pygame.image.load("img/bomb.png")
 
 def drawWall():
-	for y in range(8 * 6, 480, 16):
+	for y in range(16 * 3, 480, 16):
 		screen.blit(brick, [0, y])
 
 def drawPlayer(x, y):
@@ -31,15 +31,17 @@ def drawPlayer(x, y):
 def mainLoop():
 	done = False
 	x = 0
-	y = 8 * 4
+	y = 16 * 2
 	BLUE = (0, 0, 192) # Red, Green, Blue
 	while not done:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				done = True
 			if event.type == pygame.KEYDOWN:
-				if event.key == pygame.K_RIGHT and x != 640 - 8:
-					x += 8
+				if event.key == pygame.K_RIGHT and x != 640 - 16:
+					x += 16
+				if event.key == pygame.K_LEFT and x != 0:
+					x -= 16
 		screen.fill(BLUE)
 		drawWall()
 		drawPlayer(x, y)
