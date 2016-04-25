@@ -21,8 +21,9 @@ def init(width, height):
 	bomb = pygame.image.load("img/bomb.png")
 
 def drawWall():
-	for y in range(16 * 3, 480, 16):
-		screen.blit(brick, [0, y])
+	for x in range(0, 640, 16):
+		for y in range(16 * 3, 480, 16):
+			screen.blit(brick, [x, y])
 
 def drawPlayer(x, y):
 	screen.blit(player, [x, y])
