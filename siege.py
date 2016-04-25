@@ -40,16 +40,16 @@ def mainLoop():
 			if event.type == pygame.QUIT:
 				done = True
 			if event.type == pygame.KEYDOWN:
-				if event.key == pygame.K_RIGHT:
+				if event.key == pygame.K_RIGHT or pygame.K_LEFT:
 					if event.key not in keysPressed:
 						keysPressed.append(event.key)
-				if event.key == pygame.K_LEFT and x != 0:
-					x -= 16
 			if event.type == pygame.KEYUP:
-				if event.key == pygame.K_RIGHT:
+				if event.key == pygame.K_RIGHT or pygame.K_LEFT:
 					keysPressed.remove(event.key)
 		if pygame.K_RIGHT in keysPressed and x != 640 - 16:
 			x += 4
+		if pygame.K_LEFT in keysPressed and x != 0:
+			x -= 4
 		screen.fill(BLUE)
 		drawWall()
 		drawPlayer(x, y)
